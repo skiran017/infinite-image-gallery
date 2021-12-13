@@ -1,13 +1,13 @@
-import React, { useEffect, useState, useCallback } from "react";
-import InfiniteScroll from "react-infinite-scroll-component";
-import "./App.css";
+import React, { useEffect, useState, useCallback } from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import './App.css';
 
 const accessKey = process.env.REACT_APP_UNSPLASH_ACCESS_KEY;
 
 export default function App() {
   const [images, setImages] = useState([]);
   const [page, setPage] = useState(1);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
 
   const getPhotos = useCallback(() => {
     let apiURL = `https://api.unsplash.com/photos/?`;
@@ -65,11 +65,7 @@ export default function App() {
           type="text"
           placeholder="Search Unsplash..."
           value={query}
-          onChange={(e) =>
-            setQuery((oldState) => {
-              return e.target.value;
-            })
-          }
+          onChange={(e) => setQuery(e.target.value)}
         />
         <button>Search</button>
       </form>
